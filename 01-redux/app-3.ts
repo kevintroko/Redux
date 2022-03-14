@@ -3,9 +3,7 @@ import { counterReducer } from "./counter/counter.reducer";
 import { Action, Reducer } from "./ngrx-fake/ngrx";
 
 class Store<T> {    
-    constructor(private reducer: Reducer<T>, private state: T) {
-
-    }
+    constructor(private reducer: Reducer<T>, private state: T) {}
 
     getState(): T {
         return this.state;
