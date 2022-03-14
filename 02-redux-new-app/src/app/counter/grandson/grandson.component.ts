@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-grandson',
@@ -6,4 +6,12 @@ import { Component } from '@angular/core';
   styles: [
   ]
 })
-export class GrandsonComponent {}
+export class GrandsonComponent {
+  @Input() counter: number | undefined;
+  @Output() change = new EventEmitter<number>();
+
+  reset() {
+    this.counter = 0;
+    this.change.emit(this.counter);
+  }
+}
