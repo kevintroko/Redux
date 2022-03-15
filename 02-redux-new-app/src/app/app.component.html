@@ -1,7 +1,7 @@
 <div class="row text-center">
   <div class="col">
     <h1>Counter</h1>
-    <h2>{{counter}}</h2>
+    <h2>{{counter || '-'}}</h2>
   </div>
 </div>
 
@@ -13,10 +13,10 @@
 </div>
 
 <hr>
-
+<!--
 <div class="row text-center">
   <div class="col">
     <app-son [counter]="counter"
              (counterEmitter)="counter = $event"></app-son>
   </div>
-</div>
+</div> -->

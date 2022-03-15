@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { SonComponent } from './counter/son/son.component';
 import { GrandsonComponent } from './counter/grandson/grandson.component';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './counter/counter.reducer';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,10 @@ import { GrandsonComponent } from './counter/grandson/grandson.component';
     GrandsonComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    StoreModule.forRoot({
+      counter: counterReducer
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
