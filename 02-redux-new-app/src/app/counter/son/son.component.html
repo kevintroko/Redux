@@ -1,18 +1,22 @@
 <h3>Counter</h3>
-<h4>{{counter}}</h4>
 
 <div class="row text-center">
-    <div class="col">
-      <div class="btn btn-primary" (click)="multiply()">Multiply</div>
-      <div class="btn btn-info" (click)="divide()">Divide</div>
+  <div class="col">
+    <div class="btn btn-info" (click)="divide()">Divide /</div>
+  </div>
+  <div class="col">
+    <h4>{{counter || '0'}}</h4>
+  </div>
+  <div class="col">
+      <div class="btn btn-primary" (click)="multiply()">Multiply X</div>
     </div>
 </div>
 
 <hr>
 
-<div class="row text-center">
+<!-- <div class="row text-center">
   <div class="col">
     <app-grandson [counter]="counter"
                   (change)="counter = $event; counterEmitter.emit(counter)"></app-grandson>
   </div>
-</div>
+</div> -->

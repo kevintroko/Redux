@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { AppState } from './app.reducers';
 import * as actions from './counter/counter.actions';
-
-export interface AppState {
-  counter: number;
-}
 
 @Component({
   selector: 'app-root',
@@ -18,8 +15,6 @@ export class AppComponent {
   constructor (private store: Store<AppState>) {
     // Select will chose which field you want to listen
     this.store.select('counter').subscribe((counter: number) => {
-      console.log(counter);
-
       this.counter = counter;
     });
   }

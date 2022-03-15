@@ -9,7 +9,7 @@
     <div class="btn btn-info" (click)="decrement()">- Decrease</div>
   </div>
   <div class="col">
-    <h2>{{counter || '-'}}</h2>
+    <h2>{{counter || '0'}}</h2>
   </div>
   <div class="col">
     <div class="btn btn-primary" (click)="increment()">Increment +</div>
@@ -17,10 +17,9 @@
 </div>
 
 <hr>
-<!--
+
 <div class="row text-center">
   <div class="col">
-    <app-son [counter]="counter"
-             (counterEmitter)="counter = $event"></app-son>
+    <app-son></app-son>
   </div>
-</div> -->
+</div>

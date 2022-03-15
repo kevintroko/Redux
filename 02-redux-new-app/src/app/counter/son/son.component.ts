@@ -1,29 +1,27 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.reducers';
+import * as actions from '../counter.actions';
 
 @Component({
   selector: 'app-son',
   templateUrl: './son.component.html',
   styles: [],
 })
-export class SonComponent {
-  @Input() counter: number | undefined;
-  @Output() counterEmitter = new EventEmitter<number>();
+export class SonComponent implements OnInit {
+  counter: number | undefined;
 
-  multiply() {
-    if (!this.counter) {
-      return;
-    }
+  constructor(private store: Store<AppState>) {}
 
-    this.counter *= 2;
-    this.counterEmitter.emit(this.counter);
+  ngOnInit(): void {
+    this.store.select('counter').subscribe((counter: number) => this.counter = counter);
   }
 
-  divide() {
-    if (!this.counter) {
-      return;
-    }
-    
-    this.counter /= 2;
-    this.counterEmitter.emit(this.counter);
+  divide(): void {
+    this.store.dispatch(actions.divide({ counter: 2 }));
+  }
+
+  multiply(): void {
+    this.store.dispatch(actions.multiply({ counter: 2 }));
   }
 }
