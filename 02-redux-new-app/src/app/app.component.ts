@@ -16,10 +16,11 @@ export class AppComponent {
   counter: number = 0;
 
   constructor (private store: Store<AppState>) {
-    this.store.subscribe(state => {
-      console.log(state);
+    // Select will chose which field you want to listen
+    this.store.select('counter').subscribe((counter: number) => {
+      console.log(counter);
 
-      this.counter = state.counter;
+      this.counter = counter;
     });
   }
 
