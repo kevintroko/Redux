@@ -8,6 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { createTodoReducer } from './todos/todo.reducer';
 import { environment } from 'src/environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
     TodoModule,
     StoreModule.forRoot({ todos: createTodoReducer }),
     StoreDevtoolsModule.instrument({
