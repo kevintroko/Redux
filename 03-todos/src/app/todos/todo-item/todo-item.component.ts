@@ -26,7 +26,6 @@ export class TodoItemComponent implements OnInit {
     this.txtInput = new FormControl(this.todo?.text, Validators.required);
 
     this.completedCheck.valueChanges.subscribe(value => {
-      console.log(value);
       this.store.dispatch(actions.toggleTodo({
         id: this.todo?.id || 0
       }));
@@ -34,11 +33,31 @@ export class TodoItemComponent implements OnInit {
   }
 
   edit() {
-    this.editing = true
+    this.editing = true;
+    this.txtInput.setValue(this.todo?.text);
     setTimeout(() => this.inputP?.nativeElement.select(), 1);
   }
 
   finishEdit() {
     this.editing = false;
+
+    let id: number;
+
+    if (!this.todo?.id || this.txtInput.invalid || this.txtInput.value === this.todo.text) {
+      return;
+    } else {
+      id = this.todo.id
+    }
+
+    this.store.dispatch(actions.editTodo({
+      id,
+      text: this.txtInput.value
+    }))
+  }
+
+  delete() {
+    if (this.todo?.id) {
+      this.store.dispatch(actions.deleteTodo({ id: this.todo?.id}))
+    }
   }
 }

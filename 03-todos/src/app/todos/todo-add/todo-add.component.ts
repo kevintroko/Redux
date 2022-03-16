@@ -17,13 +17,15 @@ export class TodoAddComponent {
   }
 
   add() {
-    console.log(this.txtInput);
-
     if (this.txtInput.invalid) {
       return;
     }
 
-    this.store.dispatch(actions.createTodo(this.txtInput.value));
+    const value = this.txtInput.value;
+    console.log(value);
+
+
+    this.store.dispatch(actions.createTodo({ text: value }));
     this.txtInput.reset();
   }
 }
