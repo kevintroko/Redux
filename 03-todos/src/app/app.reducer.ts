@@ -6,7 +6,7 @@ import { createTodoReducer } from "./todos/todo.reducer";
 
 export interface AppState {
     todos: Todo[],
-    filter: filterValues,
+    filter: filterValues | string,
 }
 
 export const appReducers: ActionReducerMap<AppState> = {

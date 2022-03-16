@@ -4,5 +4,5 @@ export type filterValues = 'all' | 'completed' | 'pending';
 
 export const setFilter = createAction(
     '[Filter] Set filter',
-    props<{  filter: filterValues }>(),
+    props<{  filter: filterValues | string }>(),
 );
