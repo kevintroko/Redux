@@ -6,12 +6,12 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { InOutComponent } from './in-out/in-out.component';
 import { StadisticComponent } from './inOut/stadistic/stadistic.component';
 import { DetailComponent } from './inOut/detail/detail.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
+import { InOutComponent } from './inOut/in-out.component';
 
 @NgModule({
   declarations: [
